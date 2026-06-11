@@ -4,7 +4,7 @@
   "description": "Exercício 14 — Hello World Server",
   "main": "server.js",
   "scripts": {
-    "start": "npx tsc && npm start:quick",
+    "start": "npm i -D typescript && npx tsc && npm run start:quick",
     "start:quick": "node dist/server.js"
   },
   "dependencies": {
@@ -13,7 +13,8 @@
   "private": true,
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/express": "^5.0.6"
+    "@types/express": "^5.0.6",
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "typescript": "^5"
