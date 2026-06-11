@@ -3,18 +3,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = AssignRoutes;
+exports.default = Routes;
+const typebox_1 = __importDefault(require("typebox"));
 const users_1 = __importDefault(require("./users"));
-function AssignRoutes(app) {
-    app.get("/", (req, res) => {
-        res.send("Home");
+function Routes(app) {
+    app.get("/", async (req, res) => {
+        return res.send("Home");
     });
-    app.get("/sobre", (req, res) => {
-        res.send("Sobre");
+    app.get("/sobre", async (req, res) => {
+        return res.send("Sobre");
     });
-    app.get("/contato", (req, res) => {
-        res.send("Contato");
+    app.get("/contato", async (req, res) => {
+        return res.send("Contato");
     });
-    app.use("/usuarios", (0, users_1.default)());
+    app.register(users_1.default, { prefix: "/usuarios" });
+    app.get("/busca", {
+        schema: {
+            querystring: typebox_1.default.Partial(typebox_1.default.Object({
+                q: typebox_1.default.String(),
+                pagina: typebox_1.default.Integer()
+            }))
+        }
+    }, async (req, res) => {
+        const { q, pagina } = req.query;
+        return res.send({ pagina, q: q ?? "" });
+    });
     return app;
 }

@@ -1,13 +1,15 @@
-import { Router } from "express";
+import Type from "typebox";
 
-export default function GetUserRouter() {
-    const router = Router();
-
-    router.get("/:id", (req, res) => {
+export default function UserRoutes(app: AppInstance) {
+    app.get("/:id", {
+        schema: {
+            params: Type.Object({
+                id: Type.String()
+            })
+        }
+    }, async(req, res) => {
         const id = req.params.id;
 
-        res.send({ id });
+        return res.send({ id });
     })
-
-    return router
 }
