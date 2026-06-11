@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "npm i -D typescript && npx tsc && npm run start:quick",
-    "start:quick": "node dist/server.js"
+    "start:quick": "node server.js"
   },
   "dependencies": {
     "express": "^4.18.2"

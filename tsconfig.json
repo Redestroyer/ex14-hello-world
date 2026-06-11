@@ -7,8 +7,6 @@
     "moduleDetection": "force",
     "jsx": "react-jsx",
     "types": ["bun"],
-    "rootDir": "./src",
-    "outDir": "./dist",
 
     // Bundler mode
     "moduleResolution": "nodenext",
