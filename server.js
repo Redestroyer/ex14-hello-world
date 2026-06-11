@@ -4,12 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const routes_1 = __importDefault(require("./routes"));
 const app = (0, express_1.default)();
-// TODO: implemente a rota GET /
-// A resposta deve conter a palavra "Hello"
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+(0, routes_1.default)(app);
 app.listen(3000, () => {
     console.log('Servidor rodando em http://localhost:3000');
 });

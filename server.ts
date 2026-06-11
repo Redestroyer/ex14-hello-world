@@ -1,11 +1,9 @@
-import Express from 'express';
+import Express from "express";
+import AssignRoutes from "./routes";
+
 const app = Express();
 
-// TODO: implemente a rota GET /
-// A resposta deve conter a palavra "Hello"
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+AssignRoutes(app);
 
 app.listen(3000, () => {
   console.log('Servidor rodando em http://localhost:3000');
