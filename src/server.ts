@@ -1,10 +1,10 @@
-const express = require('express');
-const app = express();
+import Express from 'express';
+const app = Express();
 
 // TODO: implemente a rota GET /
 // A resposta deve conter a palavra "Hello"
 app.get('/', (req, res) => {
-  res.send('Hello');
+  res.send('Hello, World!');
 });
 
 app.listen(3000, () => {
