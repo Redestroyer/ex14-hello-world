@@ -5,8 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fastify_1 = __importDefault(require("fastify"));
 const routes_1 = __importDefault(require("./routes"));
-const app = (0, fastify_1.default)().withTypeProvider();
+const app = (0, fastify_1.default)({ logger: true }).withTypeProvider();
 app.register(routes_1.default);
+app.printRoutes();
 app.listen({ port: 3000 }, () => {
     console.log('Servidor rodando em http://localhost:3000');
 });

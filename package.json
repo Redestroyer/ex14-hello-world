@@ -13,6 +13,7 @@
   "private": true,
   "scripts": {
     "start": "npm i -D typescript && npx tsc && npm run start:quick",
+    "start:dev": "npx tsc && npm run start:quick",
     "start:quick": "node server.js"
   },
   "dependencies": {

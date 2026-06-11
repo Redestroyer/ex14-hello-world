@@ -28,5 +28,14 @@ function Routes(app) {
         const { q, pagina } = req.query;
         return res.send({ pagina, q: q ?? "" });
     });
+    for (const path of ["/eco", "/echo"]) {
+        app.post(path, {
+            schema: {
+                body: typebox_1.default.Object({})
+            }
+        }, async (req, res) => {
+            return res.send(req.body);
+        });
+    }
     return app;
 }
